@@ -32,7 +32,14 @@ describe KnightsTravails::Square do
   end
 
   it "ignore moves as specified" do
-    square = KnightsTravails::Square.new("g1")
-    square.knights_moves("e2", "f3").map(&:to_s).sort.must_equal(%w[h3])
+    square  = KnightsTravails::Square.new("g1")
+    ignores = %w[e2 f3].map(&KnightsTravails::Square.method(:new))
+    square.knights_moves(*ignores).map(&:to_s).sort.must_equal(%w[h3])
+  end
+
+  it "can compares themselves for equality" do
+    KnightsTravails::Square.new("a1").must_equal(
+      KnightsTravails::Square.new("a1")
+    )
   end
 end

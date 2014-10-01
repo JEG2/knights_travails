@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby -w
+
+require_relative "../lib/knights_travails"
+
+begin
+  puts KnightsTravails.find_path(*ARGV)
+rescue
+  abort "USAGE:  #{$PROGRAM_NAME} START FINISH [IGNORED]"
+end

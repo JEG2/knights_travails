@@ -15,4 +15,14 @@ describe KnightsTravails::Path do
     path.squares.must_equal(%w[a1])
     new_path.squares.must_equal(%w[a1 c2])
   end
+
+  it "stringify a list of squares" do
+    path.to_s.must_equal("a1")
+    path.add_square("c2").to_s.must_equal("a1, c2")
+  end
+
+  it "knows the last move" do
+    path.last.must_equal("a1")
+    path.add_square("c2").last.must_equal("c2")
+  end
 end

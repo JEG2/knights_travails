@@ -9,7 +9,7 @@ module KnightsTravails
 
     def valid?(*ignored_moves)
       !!(algebraic_notation =~ /\A[a-h][1-8]\z/) &&
-      !ignored_moves.include?(algebraic_notation)
+      !ignored_moves.include?(self)
     end
 
     def knights_moves(*ignored_moves)
@@ -28,6 +28,10 @@ module KnightsTravails
         end
       end
       moves
+    end
+
+    def ==(other)
+      algebraic_notation == other.algebraic_notation
     end
   end
 end

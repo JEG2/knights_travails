@@ -13,5 +13,13 @@ module KnightsTravails
     def add_square(square)
       self.class.new(*squares, square)
     end
+
+    def last
+      squares.last
+    end
+
+    def to_s
+      squares.join(", ")
+    end
   end
 end
